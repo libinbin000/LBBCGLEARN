@@ -1,10 +1,11 @@
-CC=gcc
+CC=g++
 
 TARGET=test
 
 CFLAGS= -Wall
 
-SRCS=main.c\
+SRCS=main.cpp\
+	
 
 OBJS=$(SRCS:.c=.o)
 
@@ -13,7 +14,7 @@ INCLUDES=-I../library/glfw-3.2.1.bin.WIN32/include\
 
 LIB_PATHS=-L../library/glfw-3.2.1.bin.WIN32/lib-mingw\
 
-LIBS=-lglfw3 -lglfw3dll -lopengl32 -lgdi32
+LIBS=-lglfw3 -lglfw3dll -lgdi32 #-lopengl32
 
 #在gcc末尾加入以下代码
 
