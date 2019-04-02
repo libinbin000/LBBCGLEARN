@@ -1,0 +1,34 @@
+
+错误：
+gcc main.o -o test      -Wall -I../library/glfw-3.2.1.bin.WIN32/include -I../library/glad/include -L../library/glfw-3.2.1.bin.WIN32/lib-mingw  -lglfw3 -lglfw3dll -lopengl32  -Wl,-rpath=../library/glfw-3.2.1.bin.WIN32/lib-mingw
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x3f6): undefined reference to `CreateDCW@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x40b): undefined reference to `GetDeviceCaps@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x420): undefined reference to `GetDeviceCaps@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x43d): undefined reference to `DeleteDC@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x5db): undefined reference to `CreateDCW@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x5f2): undefined reference to `GetDeviceCaps@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x60b): undefined reference to `GetDeviceCaps@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0x62c): undefined reference to `DeleteDC@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xba6): undefined reference to `CreateDCW@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xbbb): undefined reference to `GetDeviceGammaRamp@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xbc6): undefined reference to `DeleteDC@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xe35): undefined reference to `CreateDCW@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xe46): undefined reference to `SetDeviceGammaRamp@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_monitor.c.obj):win32_monitor.c:(.text+0xe51): undefined reference to `DeleteDC@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_window.c.obj):win32_window.c:(.text+0xc1): undefined reference to `CreateDIBSection@24'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_window.c.obj):win32_window.c:(.text+0x10e): undefined reference to `CreateBitmap@20'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_window.c.obj):win32_window.c:(.text+0x1a9): undefined reference to `DeleteObject@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_window.c.obj):win32_window.c:(.text+0x1b4): undefined reference to `DeleteObject@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(win32_window.c.obj):win32_window.c:(.text+0x239): undefined reference to `DeleteObject@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x151): undefined reference to `SwapBuffers@4'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x424): undefined reference to `DescribePixelFormat@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x4fb): undefined reference to `DescribePixelFormat@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x635): undefined reference to `DescribePixelFormat@16'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x656): undefined reference to `SetPixelFormat@12'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x105d): undefined reference to `ChoosePixelFormat@8'
+../library/glfw-3.2.1.bin.WIN32/lib-mingw/libglfw3.a(wgl_context.c.obj):wgl_context.c:(.text+0x1070): undefined reference to `SetPixelFormat@12'
+collect2.exe: error: ld returned 1 exit status
+Makefile:23: recipe for target 'test' failed
+mingw32-make: *** [test] Error 1
+
+解决: 链接 -lgdi32

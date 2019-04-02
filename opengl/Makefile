@@ -9,13 +9,15 @@ SRCS=main.c\
 OBJS=$(SRCS:.c=.o)
 
 INCLUDES=-I../library/glfw-3.2.1.bin.WIN32/include\
+-I../library/glad/include
 
-LIB_PATHS=-L../library/glfw-3.2.1.bin.WIN64/lib-mingw-w64
-LIBS=-lglfw3\
+LIB_PATHS=-L../library/glfw-3.2.1.bin.WIN32/lib-mingw\
+
+LIBS=-lglfw3 -lglfw3dll -lopengl32 -lgdi32
 
 #在gcc末尾加入以下代码
 
-#SO=-Wl,-rpath=../library/glfw-3.2.1.bin.WIN64/lib-mingw
+SO=-Wl,-rpath=../library/glfw-3.2.1.bin.WIN32/lib-mingw
 
 $(TARGET):$(OBJS)
 	$(CC) $^ -o $@	$(CFLAGS) $(INCLUDES) $(LIB_PATHS) $(LIBS) $(SO)
