@@ -8,14 +8,14 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "enter program name, for example ${workspaceFolder}\\opengl\\test.exe",
+			"program": "${workspaceFolder}\\opengl\\test.exe",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
 			"externalConsole": true,
 			"MIMode": "gdb",
-			"miDebuggerPath": "/path/to/gdb",
+			"miDebuggerPath": "F:\\MinGW\\bin\\gdb.exe",
 			"setupCommands": [
 				{
 					"description": "Enable pretty-printing for gdb",

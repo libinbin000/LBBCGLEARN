@@ -34,3 +34,9 @@ mingw32-make: *** [test] Error 1
 解决: 链接 -lgdi32
 由enhzflep发布的解决方案在编译时包含到gdi32库中，
 使所有必要的链接器 -lglfw3 -lgdi32 -lopengl32 作为缺少的方法 CreateDCW ， GetDeviceCaps 和 DeleteDC 都在 libgdi32.a在 MinGW lib文件夹 C：\MinGW\lib\libgdi32.a 。
+
+
+
+
+问题：
+我的电脑独立显卡不支持opengl什么鬼，用集显才能打开
