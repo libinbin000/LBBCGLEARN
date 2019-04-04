@@ -5,27 +5,26 @@ TARGET=test
 CFLAGS= -Wall
 
 SRCS=main.cpp\
+../library/glad/src/glad.c\
 	
 
 OBJS=$(SRCS:.c=.o)
 
-INCLUDES=-I../library/glfw-3.2.1.bin.WIN32/include\
+INCLUDES=-I../library/glfw-3.2.1.bin.WIN64/include\
 -I../library/glad/include
 
-LIB_PATHS=-L../library/glfw-3.2.1.bin.WIN32/lib-mingw\
+LIB_PATHS=-L../library/glfw-3.2.1.bin.WIN64/lib-mingw-w64\
 
 LIBS=-lglfw3 -lglfw3dll -lgdi32 #-lopengl32
 
-#在gcc末尾加入以下代码
-
-SO=-Wl,-rpath=../library/glfw-3.2.1.bin.WIN32/lib-mingw
+#SO=-Wl,-rpath=../library/glfw-3.2.1.bin.WIN32/lib-mingw-w64
 
 $(TARGET):$(OBJS)
-	$(CC) $^ -o $@	$(CFLAGS) $(INCLUDES) $(LIB_PATHS) $(LIBS) $(SO)
+	@$(CC) $^ -o $@	$(CFLAGS) $(INCLUDES) $(LIB_PATHS) $(LIBS) $(SO)
 
 %.o : %.c
-	$(info >>>>>>>>>>>>>>>>>>>>>>>%.o)
-	$(CC) -c $< $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $(LIBS)
+	echo "$(<:.c=.o)"
+	@$(CC) -c $< -o $(<:.c=.o) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $(LIBS)
 
 clean:
 	rm -rf *.out *.o    #清除中间文件及生成文件

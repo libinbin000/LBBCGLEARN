@@ -1,20 +1,29 @@
 #include <iostream>
+#include <windows.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void error_callback(int error,const char* des);
+
 int main()
 {
-    glfwInit();
+    if(!glfwInit()){
+		std::cout<<"glfw init failed"<<std::endl;
+		return -1;
+	}
+
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_TRUE);
+	glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
-	if(window == NULL)
+	glfwSetErrorCallback(error_callback);
+	
+	GLFWwindow* window = glfwCreateWindow(500, 500, "LearnOpenGL", nullptr, nullptr);
+
+	if(window == nullptr)
 	{
-		std::cout<<"创建GLFW窗口失败！"<<std::endl;
 		glfwTerminate();
 		return -1;
 	}
@@ -43,4 +52,9 @@ int main()
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
+}
+
+void error_callback(int error,const char* des)
+{
+	std::cout<<"["<<error<<"]"<<des<<std::endl;
 }
